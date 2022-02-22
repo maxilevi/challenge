@@ -32,7 +32,9 @@ contract ETHPool {
 
         uint256 owedRewardsPool = (lifetimeRewards - rewardsWhenDeposited[from]);
         uint256 totalDepositsAtTheRewardMoment = totalBalanceWhenAddedRewards[lifetimeRewards] - totalBalanceWhenAddedRewards[rewardsWhenDeposited[from]];
-        uint256 rewards = owedRewardsPool * principal / totalDepositsAtTheRewardMoment + unclaimedRewards[from];
+        uint256 rewards = 0;
+        if (totalDepositsAtTheRewardMoment > 0)
+            rewards = owedRewardsPool * principal / totalDepositsAtTheRewardMoment + unclaimedRewards[from];
 
         totalDeposits -= principal;
         unclaimedRewards[from] = 0;

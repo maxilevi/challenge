@@ -45,7 +45,7 @@ def test_rewards_mixed(pool):
     pool.withdraw({'from': accounts[1]})
     pool.withdraw({'from': accounts[2]})
 
-    assert balanceA + "15 ether" == accounts[1].balance()
+    assert balanceA + "10 ether" == accounts[1].balance()
     assert balanceB == accounts[2].balance()
 
 
